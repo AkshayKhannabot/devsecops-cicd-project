@@ -1,1 +1,35 @@
 
+name: My First GitHub Actions Workflow
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  hello-world:
+    name: Hello World Job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Display Welcome Message
+        run: echo "Hello! My first GitHub Actions workflow is running."
+
+      - name: Check Runner Information
+        run: |
+          echo "Operating System:"
+          uname -a
+
+          echo "Current Directory:"
+          pwd
+
+          echo "Repository Files:"
+          ls -la
+
+      - name: Workflow Completed
+        run: echo "GitHub Actions workflow executed successfully!"
+
